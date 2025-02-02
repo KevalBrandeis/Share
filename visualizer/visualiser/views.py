@@ -4,39 +4,59 @@ from plotly.offline import plot
 import numpy as np
 
 def index(request):
-    seasons_data = {
-        'Winter': np.array([
-            [1, 2, 2, 2],
-            [2, 2, 1, 2],
-            [2, 2, 1, 2],
-            [2, 2, 2, 1],
-            [2, 1, 2, 2]
+    months_data = {
+        'Jan-Feb': np.array([
+            [1, 2, 2, 2, 2, 1, 2],
+            [2, 2, 1, 2, 2, 2, 2],
+            [2, 2, 1, 2, 2, 1, 2],
+            [2, 2, 2, 1, 2, 2, 2],
+            [2, 1, 2, 2, 2, 2, 2],
+            [2, 2, 1, 1, 2, 2, 2]
         ]),
-        'Spring': np.array([
-            [2, 2, 1, 2],
-            [2, 2, 2, 1],
-            [1, 2, 2, 2],
-            [2, 1, 2, 2],
-            [2, 2, 2, 1]
+        'Mar-Apr': np.array([
+            [1, 2, 2, 2, 2, 2, 2],
+            [2, 1, 2, 2, 1, 2, 2],
+            [2, 2, 2, 2, 1, 2, 2],
+            [2, 2, 2, 1, 2, 2, 2],
+            [2, 1, 2, 2, 2, 2, 2],
+            [2, 2, 1, 2, 2, 1, 2]
         ]),
-        'Summer': np.array([
-            [2, 1, 2, 2],
-            [1, 2, 2, 2],
-            [2, 2, 2, 1],
-            [2, 2, 1, 2],
-            [1, 2, 2, 2]
+        'May-Jun': np.array([
+            [2, 2, 2, 2, 1, 2, 2],
+            [1, 2, 2, 2, 2, 2, 2],
+            [2, 2, 1, 2, 2, 2, 1],
+            [2, 2, 2, 1, 2, 2, 2],
+            [2, 1, 2, 2, 2, 2, 1],
+            [2, 2, 1, 2, 2, 2, 2]
         ]),
-        'Fall': np.array([
-            [2, 2, 2, 1],
-            [2, 1, 2, 2],
-            [2, 2, 1, 2],
-            [1, 2, 2, 2],
-            [2, 2, 2, 1]
+        'Jul-Aug': np.array([
+            [2, 1, 2, 2, 2, 2, 2],
+            [2, 2, 1, 2, 2, 2, 2],
+            [2, 2, 1, 2, 2, 2, 1],
+            [2, 2, 2, 1, 2, 2, 2],
+            [2, 1, 2, 2, 1, 2, 2],
+            [2, 2, 2, 2, 2, 1, 2]
+        ]),
+        'Sep-Oct': np.array([
+            [2, 2, 2, 2, 2, 2, 2],
+            [2, 1, 2, 2, 2, 2, 2],
+            [2, 2, 1, 2, 2, 2, 1],
+            [2, 2, 2, 1, 2, 2, 2],
+            [2, 1, 2, 2, 2, 2, 2],
+            [2, 2, 2, 2, 2, 1, 2]
+        ]),
+        'Nov-Dec': np.array([
+            [2, 1, 2, 2, 2, 2, 2],
+            [2, 2, 1, 2, 2, 2, 2],
+            [2, 2, 1, 2, 2, 2, 1],
+            [2, 2, 2, 1, 2, 2, 2],
+            [2, 1, 2, 2, 1, 2, 2],
+            [2, 2, 2, 2, 2, 1, 2]
         ]),
     }
 
     plot_divs = {}
-    for season, matrix in seasons_data.items():
+    for months, matrix in months_data.items():
         fig = go.Figure()
 
         rows, cols = matrix.shape
@@ -66,14 +86,14 @@ def index(request):
                     y=((rows - i - 1) * cell_size + cell_size / 2),
                     text="Coolant" if value == 1 else "Server",
                     showarrow=False,
-                    font=dict(size=14, color="black"),
+                    font=dict(size=10, color="black"),  # Reduced font size
                     # Center-align the text within the shape
                     xanchor="center",
                     yanchor="middle",
                 )
 
         fig.update_layout(
-            title=f"Optimal - {season}",
+            title=f"{months}",
             title_font=dict(size=18),
             title_x=0.5,
             title_xanchor='center',
@@ -86,7 +106,7 @@ def index(request):
             margin=dict(l=30, r=30, t=50, b=30),  # Small margins
         )
 
-        plot_divs[season] = plot(fig, output_type='div', include_plotlyjs=False)
+        plot_divs[months] = plot(fig, output_type='div', include_plotlyjs=False)
 
     context = {
         'plot_divs': plot_divs,

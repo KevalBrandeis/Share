@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Center Optimization</title>
+    <title>Data Center Layout Optimization</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         body {
@@ -67,16 +67,16 @@
         }
 
         .output-section {
-            background-color: #0077b6;
-            color: #fff;
+            background-color: #fff;
+            color: #333;
             flex: 1 1 100%;
         }
 
         .plot-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* 2 columns */
-            grid-template-rows: repeat(2, 1fr);    /* 2 rows */
-            gap: 20px; /* Space between plots */
+            grid-template-rows: repeat(3, 1fr);    /* 3 rows */
+            gap: 40px; /* Increased space between plots */
             justify-content: center;
             align-items: center;
         }
@@ -106,7 +106,7 @@
     <div class="app-container">
         <header class="app-header">
             <h1>Data Center Layout Optimization</h1>
-            <p>Visualizing Seasonal Layouts</p>
+            <p>Visualizing Bi-Monthly Layouts</p>
         </header>
 
         <main class="main-content">
