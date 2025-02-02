@@ -130,23 +130,18 @@
 
         <main class="main-content">
             <section class="output-section" id="output-section">
-                <h2>Seasonal Layouts</h2>
-                <div class="season-dropdown">
-                    <select id="season-select" class="season-select">
-                        {% for season in seasons %}
-                        <option value="{{ season }}" {% if season == selected_season %}selected{% endif %}>{{ season }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <div id="plot-container" class="plot-container" style="position: center">
-                    {{ plot_div|safe }}
+                <div class="plot-grid">
+                    {% for season, plot_div in plot_divs.items %}
+                        <div id="{{ season }}-plot" class = "plot-container">
+                            {{ plot_div|safe }}
+                        </div>
+                    {% endfor %}
                 </div>
             </section>
         </main>
 
         <footer class="footer">
-            <p>&copy; 2024 Data Center Optimization</p>
+            <p>&copy; 2025 Data Center Optimization</p>
         </footer>
     </div>
 
