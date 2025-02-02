@@ -5,58 +5,59 @@ import numpy as np
 
 def index(request):
     months_data = {
-        'Jan-Feb': np.array([
-            [1, 2, 2, 2, 2, 1, 2],
-            [2, 2, 1, 2, 2, 2, 2],
-            [2, 2, 1, 2, 2, 1, 2],
-            [2, 2, 2, 1, 2, 2, 2],
-            [2, 1, 2, 2, 2, 2, 2],
-            [2, 2, 1, 1, 2, 2, 2]
-        ]),
-        'Mar-Apr': np.array([
-            [1, 2, 2, 2, 2, 2, 2],
-            [2, 1, 2, 2, 1, 2, 2],
-            [2, 2, 2, 2, 1, 2, 2],
-            [2, 2, 2, 1, 2, 2, 2],
-            [2, 1, 2, 2, 2, 2, 2],
-            [2, 2, 1, 2, 2, 1, 2]
-        ]),
-        'May-Jun': np.array([
-            [2, 2, 2, 2, 1, 2, 2],
-            [1, 2, 2, 2, 2, 2, 2],
-            [2, 2, 1, 2, 2, 2, 1],
-            [2, 2, 2, 1, 2, 2, 2],
-            [2, 1, 2, 2, 2, 2, 1],
-            [2, 2, 1, 2, 2, 2, 2]
-        ]),
-        'Jul-Aug': np.array([
-            [2, 1, 2, 2, 2, 2, 2],
-            [2, 2, 1, 2, 2, 2, 2],
-            [2, 2, 1, 2, 2, 2, 1],
-            [2, 2, 2, 1, 2, 2, 2],
-            [2, 1, 2, 2, 1, 2, 2],
-            [2, 2, 2, 2, 2, 1, 2]
-        ]),
-        'Sep-Oct': np.array([
-            [2, 2, 2, 2, 2, 2, 2],
-            [2, 1, 2, 2, 2, 2, 2],
-            [2, 2, 1, 2, 2, 2, 1],
-            [2, 2, 2, 1, 2, 2, 2],
-            [2, 1, 2, 2, 2, 2, 2],
-            [2, 2, 2, 2, 2, 1, 2]
-        ]),
-        'Nov-Dec': np.array([
-            [2, 1, 2, 2, 2, 2, 2],
-            [2, 2, 1, 2, 2, 2, 2],
-            [2, 2, 1, 2, 2, 2, 1],
-            [2, 2, 2, 1, 2, 2, 2],
-            [2, 1, 2, 2, 1, 2, 2],
-            [2, 2, 2, 2, 2, 1, 2]
-        ]),
-    }
+    'February': np.array([
+        [1, 2, 1, 2, 1, 2, 2],
+        [2, 2, 1, 2, 2, 1, 2],
+        [2, 2, 1, 2, 2, 2, 1],
+        [2, 2, 2, 2, 2, 2, 2],
+        [2, 1, 2, 2, 2, 2, 2],
+        [1, 2, 2, 2, 2, 2, 2]
+    ]),
+    'April': np.array([
+        [2, 2, 1, 2, 2, 1, 2],
+        [2, 2, 2, 1, 1, 2, 2],
+        [1, 2, 2, 2, 2, 1, 2],
+        [2, 1, 2, 2, 1, 2, 2],
+        [2, 2, 2, 1, 2, 2, 1],
+        [1, 2, 1, 2, 2, 2, 2]
+    ]),
+    'June': np.array([
+        [2, 1, 2, 2, 1, 2, 2],
+        [1, 2, 2, 2, 2, 1, 2],
+        [2, 2, 2, 1, 1, 2, 2],
+        [2, 2, 1, 2, 2, 1, 2],
+        [1, 2, 2, 2, 1, 2, 2],
+        [2, 1, 2, 1, 2, 2, 2]
+    ]),
+    'August': np.array([
+        [2, 2, 2, 1, 2, 2, 1],
+        [2, 1, 2, 2, 1, 2, 2],
+        [2, 2, 1, 2, 2, 1, 2],
+        [1, 2, 2, 2, 1, 2, 2],
+        [2, 2, 2, 1, 2, 2, 1],
+        [2, 1, 2, 2, 2, 1, 2]
+    ]),
+    'October': np.array([
+        [2, 2, 2, 1, 2, 2, 1],
+        [2, 1, 2, 2, 1, 2, 2],
+        [2, 2, 1, 2, 2, 1, 2],
+        [1, 2, 2, 2, 1, 2, 2],
+        [2, 2, 2, 1, 2, 2, 1],
+        [1, 2, 1, 2, 2, 2, 2]
+    ]),
+    'December': np.array([
+        [2, 2, 2, 1, 2, 2, 1],
+        [2, 1, 2, 2, 1, 2, 2],
+        [2, 2, 1, 2, 2, 1, 2],
+        [1, 2, 2, 2, 1, 2, 2],
+        [2, 2, 2, 1, 2, 2, 1],
+        [2, 1, 2, 1, 2, 2, 2]
+    ]),
+}
+
 
     plot_divs = {}
-    for months, matrix in months_data.items():
+    for month, matrix in months_data.items():
         fig = go.Figure()
 
         rows, cols = matrix.shape
@@ -84,29 +85,29 @@ def index(request):
                 fig.add_annotation(
                     x=(j * cell_size + cell_size / 2),
                     y=((rows - i - 1) * cell_size + cell_size / 2),
-                    text="Coolant" if value == 1 else "Server",
+                    text="Cooler" if value == 1 else "Server",
                     showarrow=False,
-                    font=dict(size=10, color="black"),  # Reduced font size
+                    font=dict(size=14, color="black"),
                     # Center-align the text within the shape
                     xanchor="center",
                     yanchor="middle",
                 )
 
         fig.update_layout(
-            title=f"{months}",
+            title=f"{month}",
             title_font=dict(size=18),
             title_x=0.5,
             title_xanchor='center',
             xaxis=dict(showgrid=False, zeroline=False, showticklabels=False, range=[-margin, width + margin]),
             yaxis=dict(showgrid=False, zeroline=False, showticklabels=False, range=[-margin, height + margin]),
-            width=450,  # Fixed width
-            height=450,  # Fixed height
+            width=600,  # Fixed width
+            height=600,  # Fixed height
             showlegend=False,
             plot_bgcolor='rgba(0,0,0,0)',  # Transparent background
             margin=dict(l=30, r=30, t=50, b=30),  # Small margins
         )
 
-        plot_divs[months] = plot(fig, output_type='div', include_plotlyjs=False)
+        plot_divs[month] = plot(fig, output_type='div', include_plotlyjs=False)
 
     context = {
         'plot_divs': plot_divs,

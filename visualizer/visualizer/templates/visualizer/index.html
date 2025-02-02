@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Center Layout Optimization</title>
+    <title>Data Center Optimization</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         body {
@@ -67,8 +67,8 @@
         }
 
         .output-section {
-            background-color: #fff;
-            color: #333;
+            background-color: #0077b6;
+            color: #fff;
             flex: 1 1 100%;
         }
 
@@ -76,7 +76,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* 2 columns */
             grid-template-rows: repeat(3, 1fr);    /* 3 rows */
-            gap: 40px; /* Increased space between plots */
+            gap: 20px; /* Space between plots */
             justify-content: center;
             align-items: center;
         }
@@ -106,14 +106,14 @@
     <div class="app-container">
         <header class="app-header">
             <h1>Data Center Layout Optimization</h1>
-            <p>Visualizing Bi-Monthly Layouts</p>
+            <p>Visualizing Monthly Layouts</p>
         </header>
 
         <main class="main-content">
             <section class="output-section" id="output-section">
                 <div class="plot-grid">
-                    {% for season, plot_div in plot_divs.items %}
-                        <div id="{{ season }}-plot" class = "plot-container">
+                    {% for month, plot_div in plot_divs.items %}
+                        <div id="{{ month }}-plot" class = "plot-container">
                             {{ plot_div|safe }}
                         </div>
                     {% endfor %}
@@ -129,3 +129,4 @@
     </script>
 </body>
 </html>
+
