@@ -12,12 +12,12 @@ def index(request):
             [1, 2, 1, 2],
             [2, 2, 1, 2],
             [2, 2, 2, 1],
-            [2, 1, 2, 2]
+            [2, 2, 2, 2]
         ]),
         'Spring': np.array([
             [2, 2, 1, 2],
             [2, 2, 2, 1],
-            [1, 2, 2, 2],
+            [2, 2, 2, 2],
             [2, 1, 2, 2],
             [2, 2, 1, 1]
         ]),
@@ -33,7 +33,7 @@ def index(request):
             [2, 1, 2, 2],
             [2, 2, 1, 2],
             [1, 2, 2, 2],
-            [2, 1, 2, 1]
+            [2, 2, 2, 1]
         ]),
     }
 
@@ -46,10 +46,10 @@ def index(request):
 
     # Define grid size
     rows, cols = matrix.shape
-    cell_size = 50  # Adjust the size of each block
+    cell_size = 150  # Adjust the size of each block
 
     # Define colors
-    colors = {1: 'blue', 2: 'red'}
+    colors = {1: 'blue', 2: 'grey'}
 
     # Add rectangle shapes for each matrix entry
     for i in range(rows):
@@ -60,9 +60,10 @@ def index(request):
                 x0=j * cell_size, y0=(rows - i - 1) * cell_size,  # Invert Y-axis to match grid orientation
                 x1=(j + 1) * cell_size, y1=(rows - i) * cell_size,
                 fillcolor=colors[value],
-                line=dict(color="black"),
+                line=dict(color="dark grey"),
             )
             # Add text label inside the cell
+
             fig.add_annotation(
                 x=j * cell_size + cell_size / 2,
                 y=(rows - i - 1) * cell_size + cell_size / 2,

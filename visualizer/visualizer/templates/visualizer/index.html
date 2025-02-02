@@ -139,7 +139,7 @@
                     </select>
                 </div>
 
-                <div id="plot-container" class="plot-container">
+                <div id="plot-container" class="plot-container" style="position: center">
                     {{ plot_div|safe }}
                 </div>
             </section>
@@ -168,4 +168,10 @@
                     .then(html => {
                         // Extract the new plot from the fetched HTML
                         const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html
+                        const doc = parser.parseFromString(html, 'text/html')
+                    }
+                )
+            }
+        )
+    }
+)
